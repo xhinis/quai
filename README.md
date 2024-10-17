@@ -1,6 +1,4 @@
-Here's a complete guide to update and set up `go-quai` v0.34.1 and `go-quai-stratum` v0.15.0 on Ubuntu 20.04. This guide ensures that you transition smoothly to the latest versions, addressing the `getPendingHeader` issues when running the stratum proxy.
 
----
 
 ## Quai Network Node Update and Setup Guide
 
@@ -9,18 +7,18 @@ Here's a complete guide to update and set up `go-quai` v0.34.1 and `go-quai-stra
 This guide covers:
 - Stopping the current node and processes.
 - Installing and updating dependencies.
-- Downloading and building the latest releases of `go-quai` and `go-quai-stratum`.
+- Cloning, downloading, and building the latest releases of `go-quai` and `go-quai-stratum`.
 - Configuring and starting the node and stratum proxy.
 
 ### Prerequisites
 
-- Ubuntu 20.04
+- Ubuntu 20.04, 22.04 LTS
 - A Linux system with minimum hardware requirements (for slice node):
   - 8+ cores CPU
   - 24 GB RAM
   - SSD with at least 1 TB free space
   - 10 MBit/sec download speed
-- A pre-existing installation of `go-quai` and `go-quai-stratum`.
+- A pre-existing installation of `go-quai` and `go-quai-stratum` or a fresh setup.
 
 ---
 
@@ -66,18 +64,19 @@ This guide covers:
 
 ---
 
-## Step 3: Update and Build `go-quai`
+## Step 3: Clone, Update, and Build `go-quai`
 
-1. **Navigate to the `go-quai` directory**:
+1. **Clone the repository**:
    ```bash
+   git clone https://github.com/dominant-strategies/go-quai
    cd go-quai
    ```
 
 2. **Fetch the latest release**:
    ```bash
    git fetch --all
-   git checkout v0.34.1
-   git pull origin v0.34.1
+   git checkout v0.36.0
+   git pull origin v0.36.0
    ```
 
 3. **Build `go-quai`**:
@@ -87,10 +86,11 @@ This guide covers:
 
 ---
 
-## Step 4: Update and Build `go-quai-stratum`
+## Step 4: Clone, Update, and Build `go-quai-stratum`
 
-1. **Navigate to the `go-quai-stratum` directory**:
+1. **Clone the repository**:
    ```bash
+   git clone https://github.com/dominant-strategies/go-quai-stratum
    cd go-quai-stratum
    ```
 
@@ -113,7 +113,7 @@ This guide covers:
 ### 1. Node Configuration
 
 - **Select Node Type**: Ensure you're running a slice node (recommended for most users).
-- **Set environment variables**: You need to configure slices and coinbase addresses for the node.
+- **Set environment variables**: Configure slices and coinbase addresses for the node.
 
 - Example command for a single slice node running `Cyprus1`:
   ```bash
@@ -183,5 +183,3 @@ This guide covers:
 ### Notes
 - Always back up your configuration files and addresses before upgrading.
 - It’s a good practice to re-run the build command after pulling updates or making configuration changes.
-
-This guide should help you smoothly transition to the latest versions of `go-quai` and `go-quai-stratum` on Ubuntu 20.04. Let me know if you need any further assistance!
