@@ -83,6 +83,15 @@ This guide covers:
    ```bash
    make go-quai
    ```
+4. **Build `go-quai`**:
+  
+  ```bash
+  ./build/bin/go-quai start --node.slices '[0 0]' --node.coinbases '0xYourQuaiAddress,0xYourQiAddress'
+  ```
+  Replace:
+  - `0xYourQuaiAddress` with your Quai address.
+  - `0xYourQiAddress` with your Qi address.
+
 
 ---
 
@@ -90,6 +99,7 @@ This guide covers:
 
 1. **Clone the repository**:
    ```bash
+   cd
    git clone https://github.com/dominant-strategies/go-quai-stratum
    cd go-quai-stratum
    ```
@@ -100,54 +110,27 @@ This guide covers:
    git checkout v0.15.0
    git pull origin v0.15.0
    ```
+3.  **Configuration**:
+   To run the Quai stratum proxy, you’ll need to do some minor configuration. Start by copying the example configuration file to a local configuration file:
+   ```bash
+   cp config/config.example.json config/config.json
+   ```
 
-3. **Build `go-quai-stratum`**:
+4. **Build `go-quai-stratum`**:
    ```bash
    make go-quai-stratum
    ```
+5. **Start`**:
+Start when node is synced. Check from here: https://stats.quai.network/
 
----
-
-## Step 5: Configure the Node and Stratum Proxy
-
-### 1. Node Configuration
-
-- **Select Node Type**: Ensure you're running a slice node (recommended for most users).
-- **Set environment variables**: Configure slices and coinbase addresses for the node.
-
-- Example command for a single slice node running `Cyprus1`:
-  ```bash
-  ./build/bin/go-quai start --node.slices '[0 0]' --node.coinbases '0xYourQuaiAddress,0xYourQiAddress'
-  ```
-  Replace:
-  - `0xYourQuaiAddress` with your Quai address.
-  - `0xYourQiAddress` with your Qi address.
-
-### 2. Stratum Proxy Configuration
-
-- Ensure that your configuration file (`config.json`) for `go-quai-stratum` is correctly set up with the necessary node and network details.
-
----
-
-## Step 6: Start the Node and Stratum Proxy
-
-1. **Start the node**:
-   ```bash
-   ./build/bin/go-quai start --node.slices '[0 0]' --node.coinbases '0xYourQuaiAddress,0xYourQiAddress'
-   ```
-
-   - Check if logs start printing to confirm that the node is running.
-
-2. **Start the stratum proxy**:
-   ```bash
+ ```bash
    ./build/bin/go-quai-stratum --config /path/to/your/config.json
    ```
-
-   - Ensure the config file has the correct paths and node addresses.
-
 ---
 
-## Step 7: Verify the Update
+
+
+## Step 5: Verify the Update
 
 1. **Check Node Logs**:
    ```bash
