@@ -124,7 +124,7 @@ This guide covers:
 Start when node is synced. Check from here: https://stats.quai.network/
 
  ```bash
-   ./build/bin/go-quai-stratum --config /path/to/your/config.json
+   ./build/bin/go-quai-stratum --region=cyprus --zone=cyprus1
    ```
 ---
 
